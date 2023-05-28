@@ -71,13 +71,13 @@ isort: just sort imports
 rope: refactoring
 pydocstyle: enforces docstring conventions
 
-What I would personally use for a project is black and pylint
+What I would personally use for a project is black and pylint/ruff
 Having a project using these sorts of tools would be very advanced for your age.
     Even though they are trivial to use, just knowing of them and being able to explain them
     is very good.
     Explanations for using:
-        Black/auto formatter - standardized code between all programmers makes things easier to read and understand
-        Pylint/linter - enforces good coding standards, along with letting you know if you make something to be considered bad practice
+        auto formatter - standardized code between all programmers makes things easier to read and understand
+        linter - enforces good coding standards, along with letting you know if you make something to be considered bad practice
             You'd see lots of linting errors in your code probably, pylint is very very strict
 Formatters and linters can and should be set up in your vscode to run constantly, e.g. everytime
 you save
@@ -89,11 +89,9 @@ A linter to checkout: Ruff
     Very new, hype, fast
     Replaces flake8,isort,pydocstyle in one
 
-    Pylint still catches more, but is slow to use
+    Pylint still catches more, but is slow to use (a big project would take a while to lint)
     A good strategy may be to use Ruff when coding, then pylint in CI/CD to check for
     uncommon warnings only when checking in code.
-
-    For the sake of a demo project pylint is probably better since everyone knows what it is
 
 ------------------------------------------------------
 CI/CD - Continuous Integration / Continuous Development

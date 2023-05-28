@@ -10,11 +10,12 @@ Typical usage example:
   foo = ClassFoo()
   bar = foo.FunctionBar()
 """
+import pandas as pd
 
 
 # This function adds two numbers
 def add(x, y):
-    """_summary_
+    """_summary_.
 
     Args:
         x (_type_): _description_
@@ -26,19 +27,16 @@ def add(x, y):
     return x + y
 
 
-# This function subtracts two numbers
 def subtract(x, y):
     return x - y
 
 
-# This function multiplies two numbers
 def multiply(x, y):
     return x * y
 
 
 def divide(x, y):
-    """
-    Short description.
+    """Short description.
 
     Long description
 
@@ -50,7 +48,8 @@ def divide(x, y):
         int: This is a description of what is returned.
 
     Raises:
-        None in this case, can leave this part out if none."""
+        None in this case, can leave this part out if none.
+    """
     return x / y
 
 

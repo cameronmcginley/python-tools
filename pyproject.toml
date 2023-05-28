@@ -1,0 +1,11 @@
+# Default Ruff Config: https://beta.ruff.rs/docs/configuration/
+[tool.ruff]
+# Enable flake8-bugbear (`B`), isort ("I"), pydocstyle (`D`), pep8-naming ("N"), flake8-bandit ("S"
+select = ["E", "F", "B", "I", "D", "N", "S"]
+
+# Avoid trying to fix anything
+unfixable = ["B", "I", "D", "N", "S"]
+
+[tool.ruff.pydocstyle]
+# Use Google-style docstrings.
+convention = "google"
