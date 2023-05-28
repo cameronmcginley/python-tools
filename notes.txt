@@ -1,0 +1,126 @@
+Virtual Environment
+Creates an environment specifically for the given project. By default, your environment is just
+your normal system. This means all libraries are installed across your entire system. Virtual environments
+(venv) means libraries are only installed for this specific project. This helps you keep track
+of libraries you're actually using and their version, and prevents libraries installed for other
+projects from interfering with this one.
+
+To make venv:
+> python -m venv /path/to/new/virtual/environment
+e.g.: python -m venv venv
+    Creates the folder "venv" in the directory in which you run that command
+
+Enable venv:
+> source venv/Scripts/activate
+    You have to do this every time you open up the project again
+    There are ways to auto run this though.
+
+Saving libraries and their versions:
+This is important when others build your project, as they need to install the same libraries
+and the same versions. This command saves your list of libraries into "requirements.txt"
+> pip freeze > requirements.txt
+
+Installing libraries from requirements.txt:
+> pip install -r requirements.txt
+
+
+------------------------------------------------
+Docstrings
+These are the notes you leave at the top of the file, and at the top of each function (inside it)
+See styles here: https://stackoverflow.com/questions/3898572/what-are-the-most-common-python-docstring-formats
+I like the Google style, it's easy to read.
+More info on class vs func vs script docstrings: https://realpython.com/documenting-python-code/
+
+-------------------------------------------------
+Function Length
+Functions should be relatively short, they should perform a single function
+I've heard people recommend no more than 40 lines of code, but thats quite short. Just do
+what seems right and really think about how much functionality you are putting into a function
+It can be good to have a 'master' function that handles calling other functions if a lot of
+functionality is needed, can almost build your functions like a pyramid
+
+-------------------------------------------------
+Auto Formatting
+Popular formatters are:
+black: opinionated formatter
+    What I personally like, makes everyones code identical
+    Opinionated so you don't have to be
+autopep8: only fixes pep8 violations
+yapf: reformats entire code to the best style possible
+
+---------------------------------------------------
+Linting
+Popular linters:
+pylint: very strict linter (coding standards, code smells, simple refactors)
+flake8: enforce coding standards
+bandit: find security issues
+
+---------------------------------------------------
+Static Type Checking
+You don't need to do this. This enforces types in Python, like how you do in C++.
+Benefit is that you won't accidentially mistake a variable for the wrong type, which could have
+unexpected consequences.
+Type checkers follow PEP 484 standards (https://peps.python.org/pep-0484/)
+Popular type checkers:
+mypy: Optional type checker
+pyright: LSP with type checking capabilities
+
+-----------------------------------------------------
+Other useful project libraries:
+isort: just sort imports
+rope: refactoring
+pydocstyle: enforces docstring conventions
+
+What I would personally use for a project is black and pylint
+Having a project using these sorts of tools would be very advanced for your age.
+    Even though they are trivial to use, just knowing of them and being able to explain them
+    is very good.
+    Explanations for using:
+        Black/auto formatter - standardized code between all programmers makes things easier to read and understand
+        Pylint/linter - enforces good coding standards, along with letting you know if you make something to be considered bad practice
+            You'd see lots of linting errors in your code probably, pylint is very very strict
+Formatters and linters can and should be set up in your vscode to run constantly, e.g. everytime
+you save
+You will see a gazillion arguments online about formatting and linting, just pick what you like really.
+
+These tools are ever changing, the hot thing changes every year. Do some research on formatters and linters on your own too, and see if something sounds better. Try a bunch out too.
+
+A linter to checkout: Ruff
+    Very new, hype, fast
+    Replaces flake8,isort,pydocstyle in one
+
+    Pylint still catches more, but is slow to use
+    A good strategy may be to use Ruff when coding, then pylint in CI/CD to check for
+    uncommon warnings only when checking in code.
+
+    For the sake of a demo project pylint is probably better since everyone knows what it is
+
+------------------------------------------------------
+CI/CD - Continuous Integration / Continuous Development
+In a big team project, you want everyone to use the same formatters etc. But github will still 
+allow you to push code if you aren't using the right formatter. CI/CD pipelines run against your
+pushed code to check all standards your team sets are met before the code can be merged.
+Don't worry about this.
+
+-----------------------------------------------------------
+Overall style
+A good overall style guide: https://google.github.io/styleguide/pyguide.html
+
+----------------------------------------------------------
+Main function
+
+if __name__ == "__main__":
+    main()
+
+Enclose main logic of your script in main func. The above code calls the main func
+when you run the file, but ONLY when running the file.
+
+Comment from this thread - https://www.reddit.com/r/learnpython/comments/tewsex/is_it_considered_best_practice_to_use_the_if_name/
+
+When coding, convention is important. main functions are an established convention.
+
+You should get in the habit of encapsulating the main logic of a script in main. This will improve the clarity of your code. It will also make your code easier for other programmers to navigate should they need to.
+
+Different but related, having if __name__ == '__main__': main() at the end of your script will also make your code more modular and flexible. It will allow your scripts to share bits and pieces of functionality. It will also facilitate the packaging of a codebase if and when you decide to do so.
+
+In the end, even if you don't completely understand the why behind this or that programming convention, if it is widespread, you should probably just adopt it. This way, once you and your code become more polished and professional, you will have already set yourself up for success.

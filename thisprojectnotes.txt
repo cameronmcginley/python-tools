@@ -1,0 +1,23 @@
+VSCode Extensions:
+Python
+Black
+PyLint
+autoDocstring
+    Auto generate docstring for function: ctrl shift p > docstring
+
+Settings:
+Code -> Preferences -> Settings
+1. Search "format on save" and enable this
+2. Search "black", change import strategy to "fromEnvironment"
+    This is so we can define it in the project so every programmer uses the same version
+3. Search "pylint", change import strategy to "fromEnvironment"
+
+Setting default formatter:
+ctrl shift p to bring up command menu
+search format
+click format, select Black
+
+
+pylintrc
+    Settings for pylint
+    Downloaded from Google's Python style guide
